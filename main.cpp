@@ -4,5 +4,5 @@ const int arrayStudentsIndex = 100;
 int main()
 {
     students arrayinput[arrayStudentsIndex];
-    input(arrayinput,0);
+    registrationOfStudents(arrayinput, 1);
 }

@@ -1,7 +1,12 @@
 #pragma once
 struct students
 {
-    std::string studentsNames;
-    float studentsDegrees;
+    int studentId;
+    std::string studentName;
+    int studentBirthInfo [3];
+    std::string studentGender;
+    std::string studentSteetInfo;
+    int studentPhoneNumber;
+    int studentClassDegree;
 };
-void input(students arrayinput[], int numbersOfStudents);
+void registrationOfStudents(students arrayinput[], int numbersOfStudents);
