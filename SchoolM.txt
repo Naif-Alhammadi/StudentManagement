@@ -1,0 +1,6 @@
+id    name  birth       genderstreetphone       degree
+--------------------------------------------------------
+1     naif  8           /5/2005Male  60meter774556789   12    
+id    name  birth       genderstreetphone       degree
+--------------------------------------------------------
+1     hi    8/5/2005        Male  60meter774556789   12    

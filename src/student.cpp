@@ -1,18 +1,19 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include"../fileManager/fileManager.h"
 #include "../include/student.h"
 #include "student.h"
 
 void registrationOfStudents(students arrayinput[], int &indexOfStudents)
-{
-     int studentGender;
+{    
+        int studentGender;
     int backStudentPhoneNumber;
     std::cout << "REQUIRED REGISTRATION INFO"<<'\n';
     std::cout<<"=================================\n";
     // Student Registration Info
     std::cout<<"enter Student id ";
-    while (!(std::cin >> arrayinput[indexOfStudents].studentId) || !(studentIdCheck(arrayinput, indexOfStudents)) || (arrayinput[indexOfStudents].studentId <=0))
+    while (!(std::cin >> arrayinput[indexOfStudents].studentId) || !(studentIdCheck(arrayinput, indexOfStudents)) || (arrayinput[indexOfStudents].studentId <= 0))
     {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -64,8 +65,11 @@ void registrationOfStudents(students arrayinput[], int &indexOfStudents)
         }
         std::cout << "enter student Class Degree ";
         std::cin>>arrayinput[indexOfStudents].studentClassDegree;
-    std::cout << "REGISTRATION OF " <<arrayinput[indexOfStudents].studentName<<" HAS BEEN SUCCESSFULLY ENTERD THANK YOU ;)"<<std::endl;
-    indexOfStudents++;
+        std::cout << "REGISTRATION OF " <<arrayinput[indexOfStudents].studentName<<" HAS BEEN SUCCESSFULLY ENTERD THANK YOU ;)"<<std::endl;
+        indexOfStudents++;
+        int holdindex=indexOfStudents;
+        saveStudentsFile(arrayinput,holdindex);
+        showStudentsFile(arrayinput,holdindex);
 }
 bool studentNameCheck(students arrayinput[],const int indexOfStudents)
 {
@@ -315,15 +319,15 @@ void editStudentInfromation(students arrayedit[],const int indexOfStudents){
                         break;
                     }
             case 6:{
-                        std::cout<<"enter the new name : ";
-                        std::cin>>arrayedit[studentSearch].studentName;
-                        std::cout<<"name has been successfully edit thank you ;)\n";
+                        std::cout<<"enter the new streetinfo : ";
+                        std::cin>>arrayedit[studentSearch].studentStreetInfo;
+                        std::cout<<"streetinfo has been successfully edit thank you ;)\n";
                         break;
                     }
             case 7:{
-                        std::cout<<"enter the new name : ";
-                        std::cin>>arrayedit[studentSearch].studentName;
-                        std::cout<<"name has been successfully edit thank you ;)\n";
+                        std::cout<<"enter the new classgrade : ";
+                        std::cin>>arrayedit[studentSearch].studentClassDegree;
+                        std::cout<<"classgrade has been successfully edit thank you ;)\n";
                         break;
                     }
              default:{
@@ -331,7 +335,9 @@ void editStudentInfromation(students arrayedit[],const int indexOfStudents){
                     goto backStart;
                         break;
                     }
-            }
+                }
+                saveStudentsFile(arrayedit, indexOfStudents,"edit");
+                showStudentsFile(arrayedit, indexOfStudents,"edit");
         }
     else 
     {
